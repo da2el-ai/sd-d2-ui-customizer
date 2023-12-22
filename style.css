@@ -1,0 +1,106 @@
+/* ボタンを大きく */
+.d2_uic_change_button_size {
+  #image_buttons_img2img .gradio-button.tool,
+  #image_buttons_txt2img .gradio-button.tool {
+    max-width: 3.2em;
+    height: 3.2em;
+  }
+}
+
+/* スライダーの表示切り替え */
+.d2_uic_invisible_slider {
+  #txt2img_steps,
+  #txt2img_width,
+  #txt2img_height,
+  #txt2img_batch_count,
+  #txt2img_batch_size,
+  #txt2img_cfg_scale,
+  #img2img_steps,
+  #img2img_width,
+  #img2img_height,
+  #img2img_batch_count,
+  #img2img_batch_size,
+  #img2img_cfg_scale {
+    input[type="range"] {
+      display: none;
+    }
+  }
+}
+
+/* プロンプトフォントサイズ */
+#txt2img_neg_prompt textarea,
+#imgimg_neg_prompt textarea,
+#txt2img_prompt textarea,
+#img2img_prompt textarea {
+  font-size: var(--d2-uic--prompt-font-size, 1rem);
+}
+
+/* バッチ系のリセットボタン */
+.d2_uic_enable_batch_reset_button {
+  --d2-uic--batch-reset-button-color: #c00;
+  --d2-uic--batch-reset-button-bg-hover: #fcc;
+
+  #txt2img_batch_count,
+  #txt2img_batch_size,
+  #img2img_batch_count,
+  #img2img_batch_size {
+    &[data-testid="block-info"] {
+      color: var(--d2-uic--batch-reset-button-color);
+    }
+
+    label {
+      border-bottom: solid 1px var(--d2-uic--batch-reset-button-color);
+      transition: 0.3s;
+
+      &:hover {
+        background-color: var(--d2-uic--batch-reset-button-bg-hover);
+      }
+    }
+  }
+}
+
+/* ドロップダウンの選択項目の色を変更 */
+.d2_uic_change_dropdown_color {
+  .item.active,
+  .item:hover {
+    background: var(--d2-uic--dropdown_color, #ccc) !important;
+  }
+}
+
+/* 通常のグラデーション */
+.d2_uic_change_extension_bg_color {
+  #txt2img_script_container > .styler > .gradio-group,
+  #img2img_script_container > .styler > .gradio-group {
+    background-image: linear-gradient(
+      to bottom,
+      var(--d2-uic--extension-bg-start, #ccc),
+      var(--d2-uic--extension-bg-end, #fff)
+    );
+  }
+}
+
+/* 有効時のグラデーション */
+/* ControlNet */
+/* #txt2img_script_container
+  > .styler > .gradio-group:has(
+    [id$="controlnet_enable_checkbox"] input[type="checkbox"]:checked
+  ),
+#img2img_script_container
+  > .styler > .gradio-group:has(
+    [id$="controlnet_enable_checkbox"] input[type="checkbox"]:checked
+  ), */
+
+/* TiledDiffusion */
+/* #txt2img_script_container
+  > .styler > .gradio-group:has(#MD-t2i-enabled input[type="checkbox"]:checked),
+#img2img_script_container
+  > .styler > .gradio-group:has(#MD-i2i-enabled input[type="checkbox"]:checked), */
+
+/* TiledVAE */
+/* #txt2img_script_container
+  > .styler > .gradio-group:has(#tiledvae-t2i-enable input[type="checkbox"]:checked),
+#img2img_script_container
+  > .styler > .gradio-group:has(#tiledvae-i2i-enable input[type="checkbox"]:checked),
+.dummy {
+  background-image: linear-gradient(to bottom, #fee, #fff);
+} */
