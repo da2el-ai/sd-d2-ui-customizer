@@ -74,7 +74,9 @@ class D2UiCustomizer {
     label.addEventListener("click", () => {
       if (!opts.d2_uic_enable_batch_reset_button) return;
 
-      container.querySelector('input[type="number"]').value = 1;
+      const input = container.querySelector('input[type="number"]');
+      input.value = 1;
+      updateInput(input);
     });
   }
 
