@@ -55,12 +55,26 @@ class D2UiCustomizer {
       opts.d2_uic_extension_bg_color_end
     );
 
+    // アクティブな機能拡張の背景色：始点・終点
+    container.style.setProperty(
+      "--d2-uic--extension-bg-start-active",
+      opts.d2_uic_extension_bg_color_start_active
+    );
+    container.style.setProperty(
+      "--d2-uic--extension-bg-end-active",
+      opts.d2_uic_extension_bg_color_end_active
+    );
+
     // バッチ系のリセットボタンを設定
     if (opts.d2_uic_enable_batch_reset_button) {
       container.classList.add("d2_uic_enable_batch_reset_button");
     } else {
       container.classList.remove("d2_uic_enable_batch_reset_button");
     }
+
+    // ネガティブプロンプトを非表示
+    D2UiCustomizer.moveNegativePrompt("#txt2img_neg_prompt");
+    D2UiCustomizer.moveNegativePrompt("#img2img_neg_prompt");
   }
 
   /**
@@ -84,17 +98,37 @@ class D2UiCustomizer {
    * ネガティブプロンプトの非表示切替
    */
   static moveNegativePrompt(target) {
+    const enable = opts.d2_uic_enable_invisible_negative;
     const container = gradioApp().querySelector(target);
     const label = container.querySelector("label");
 
-    const summary = document.createElement("summary");
-    summary.textContent = "Negative prompt";
+    if (enable && !container.querySelector("details")) {
+      // 非表示にする
+      const summary = document.createElement("summary");
+      summary.textContent = "Negative prompt";
 
-    const details = document.createElement("details");
-    details.appendChild(summary);
-    details.appendChild(label);
+      const details = document.createElement("details");
+      details.appendChild(summary);
+      details.appendChild(label);
 
-    container.appendChild(details);
+      container.appendChild(details);
+      //
+    } else if (!enable && container.querySelector("details")) {
+      // 非表示されているものを戻す
+      container.appendChild(label);
+      const details = container.querySelector("details");
+      container.removeChild(details);
+    }
+  }
+
+  /**
+   * ユーザー定義cssを読み込む
+   */
+  static loadUserStyle() {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "/file=extensions/sd-d2-ui-customizer/user.css?" + Date.now();
+    document.head.appendChild(link);
   }
 }
 
@@ -104,12 +138,11 @@ onOptionsChanged(async () => {
 });
 
 onUiLoaded(async () => {
+  // ユーザー定義cssを読み込む
+  D2UiCustomizer.loadUserStyle();
+
   // 設定反映
   D2UiCustomizer.customize();
-
-  // ネガティブプロンプトの非表示切替
-  D2UiCustomizer.moveNegativePrompt("#txt2img_neg_prompt");
-  D2UiCustomizer.moveNegativePrompt("#img2img_neg_prompt");
 
   // バッチ系のリセットボタン
   D2UiCustomizer.setBatchResetButton("#txt2img_batch_count");
