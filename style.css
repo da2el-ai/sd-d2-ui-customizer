@@ -29,7 +29,7 @@
 
 /* プロンプトフォントサイズ */
 #txt2img_neg_prompt textarea,
-#imgimg_neg_prompt textarea,
+#img2img_neg_prompt textarea,
 #txt2img_prompt textarea,
 #img2img_prompt textarea {
   font-size: var(--d2-uic--prompt-font-size, 1rem);
@@ -78,29 +78,3 @@
     );
   }
 }
-
-/* 有効時のグラデーション */
-/* ControlNet */
-/* #txt2img_script_container
-  > .styler > .gradio-group:has(
-    [id$="controlnet_enable_checkbox"] input[type="checkbox"]:checked
-  ),
-#img2img_script_container
-  > .styler > .gradio-group:has(
-    [id$="controlnet_enable_checkbox"] input[type="checkbox"]:checked
-  ), */
-
-/* TiledDiffusion */
-/* #txt2img_script_container
-  > .styler > .gradio-group:has(#MD-t2i-enabled input[type="checkbox"]:checked),
-#img2img_script_container
-  > .styler > .gradio-group:has(#MD-i2i-enabled input[type="checkbox"]:checked), */
-
-/* TiledVAE */
-/* #txt2img_script_container
-  > .styler > .gradio-group:has(#tiledvae-t2i-enable input[type="checkbox"]:checked),
-#img2img_script_container
-  > .styler > .gradio-group:has(#tiledvae-i2i-enable input[type="checkbox"]:checked),
-.dummy {
-  background-image: linear-gradient(to bottom, #fee, #fff);
-} */
