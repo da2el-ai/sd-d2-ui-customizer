@@ -76,10 +76,38 @@ def on_ui_settings():
     )
 
     shared.opts.add_option(
+        key="d2_uic_extension_bg_color_start_active",
+        info=shared.OptionInfo(
+            "#fee",
+            label="機能拡張がアクティブな時の背景色・始点（初期値: #fee）",
+            section=section,
+        ),
+    )
+
+    shared.opts.add_option(
+        key="d2_uic_extension_bg_color_end_active",
+        info=shared.OptionInfo(
+            "#fff",
+            label="機能拡張がアクティブな時の背景色・始点（初期値: #fff）",
+            section=section,
+        ),
+    )
+
+
+    shared.opts.add_option(
         key="d2_uic_enable_batch_reset_button",
         info=shared.OptionInfo(
             True,
             label="Batch count、Batch size を「1」に設定するボタンを有効にする",
+            section=section,
+        ),
+    )
+
+    shared.opts.add_option(
+        key="d2_uic_enable_invisible_negative",
+        info=shared.OptionInfo(
+            True,
+            label="Negative promptの非表示を有効にする",
             section=section,
         ),
     )
