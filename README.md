@@ -33,3 +33,37 @@ This customizes the user interface (UI) of the Stable Diffusion webui AUTOMATIC1
 4. "Install" をクリックしてインストールが完了するのを待つ
 5. "Installed" を開き、"Apply and restart the UI" をクリック
 
+## Extention panel active color
+
+機能拡張がアクティブ時の背景色の変更は下記に対応しています。（2023.12.26 現在）
+
+- ControlNet
+- Tiled Diffusion
+- Tiled VAE
+- ADetailer
+- Regional Prompter
+
+自分で追加したい時は `{webui}/extensions/sd-d2-ui-customizer/user.css` を編集してください。
+
+```css
+/* TiledVAE */
+.d2_uic_change_extension_bg_color {
+  #txt2img_script_container > .styler,
+  #img2img_script_container > .styler {
+    & > .gradio-group:has(#MD-t2i-enable input[type="checkbox"]:checked),
+    & > .gradio-group:has(#MD-i2i-enable input[type="checkbox"]:checked) {
+```
+
+これは TiledVAE を例にしたものです。
+ほとんどの機能拡張は `#MD-t2i-enable`、`#MD-i2i-enable` に該当する部分を変更すれば対応できます。
+
+`<checkbox>` の上層に固有のIDが割り当てられていないと対応できません。
+例えば Ranbooru は対応できません。
+
+
+## Update
+
+- 2023.12.26
+  - feat: ネガティブプロンプトの非表示切替の設定を追加
+  - feat: 機能拡張がアクティブ時の背景色設定を追加
+  - fix: ネガティブプロンプトの文字サイズが反映されていないのを修正
