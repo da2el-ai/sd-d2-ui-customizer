@@ -1,0 +1,83 @@
+/* 有効時のグラデーション */
+
+/* ControlNet */
+.d2_uic_change_extension_bg_color {
+  #txt2img_script_container > .styler,
+  #img2img_script_container > .styler {
+    &
+      > .gradio-group:has(
+        [id$="controlnet_enable_checkbox"] input[type="checkbox"]:checked
+      ) {
+      background-image: linear-gradient(
+        to bottom,
+        var(--d2-uic--extension-bg-start-active, #fee),
+        var(--d2-uic--extension-bg-end-active, #fff)
+      );
+    }
+  }
+}
+
+/* TiledDiffusion */
+.d2_uic_change_extension_bg_color {
+  #txt2img_script_container > .styler,
+  #img2img_script_container > .styler {
+    & > .gradio-group:has(#MD-t2i-enabled input[type="checkbox"]:checked),
+    & > .gradio-group:has(#MD-i2i-enabled input[type="checkbox"]:checked) {
+      background-image: linear-gradient(
+        to bottom,
+        var(--d2-uic--extension-bg-start-active, #fee),
+        var(--d2-uic--extension-bg-end-active, #fff)
+      );
+    }
+  }
+}
+
+/* TiledVAE */
+.d2_uic_change_extension_bg_color {
+  #txt2img_script_container > .styler,
+  #img2img_script_container > .styler {
+    & > .gradio-group:has(#MD-t2i-enable input[type="checkbox"]:checked),
+    & > .gradio-group:has(#MD-i2i-enable input[type="checkbox"]:checked) {
+      background-image: linear-gradient(
+        to bottom,
+        var(--d2-uic--extension-bg-start-active, #fee),
+        var(--d2-uic--extension-bg-end-active, #fff)
+      );
+    }
+  }
+}
+
+/* ADetailer */
+.d2_uic_change_extension_bg_color {
+  #txt2img_script_container > .styler,
+  #img2img_script_container > .styler {
+    &
+      > .gradio-group:has(
+        #script_txt2img_adetailer_ad_enable input[type="checkbox"]:checked
+      ),
+    &
+      > .gradio-group:has(
+        #script_img2img_adetailer_ad_enable input[type="checkbox"]:checked
+      ) {
+      background-image: linear-gradient(
+        to bottom,
+        var(--d2-uic--extension-bg-start-active, #fee),
+        var(--d2-uic--extension-bg-end-active, #fff)
+      );
+    }
+  }
+}
+
+/* RegionalPrompter */
+.d2_uic_change_extension_bg_color {
+  #txt2img_script_container > .styler,
+  #img2img_script_container > .styler {
+    & > .gradio-group:has(#RP_active input[type="checkbox"]:checked) {
+      background-image: linear-gradient(
+        to bottom,
+        var(--d2-uic--extension-bg-start-active, #fee),
+        var(--d2-uic--extension-bg-end-active, #fff)
+      );
+    }
+  }
+}
