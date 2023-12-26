@@ -57,7 +57,7 @@ This customizes the user interface (UI) of the Stable Diffusion webui AUTOMATIC1
 これは TiledVAE を例にしたものです。
 ほとんどの機能拡張は `#MD-t2i-enable`、`#MD-i2i-enable` に該当する部分を変更すれば対応できます。
 
-`<checkbox>` の上層に固有のIDが割り当てられていないと対応できません。
+`<input type="checkbox">` の上層に固有のIDが割り当てられていないと対応できません。
 例えば Ranbooru は対応できません。
 
 
