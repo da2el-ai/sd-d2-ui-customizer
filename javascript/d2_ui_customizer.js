@@ -75,6 +75,9 @@ class D2UiCustomizer {
     // ネガティブプロンプトを非表示
     D2UiCustomizer.moveNegativePrompt("#txt2img_neg_prompt");
     D2UiCustomizer.moveNegativePrompt("#img2img_neg_prompt");
+
+    // inpaint設定を非表示
+    D2UiCustomizer.moveInpaintSettings();
   }
 
   /**
@@ -117,6 +120,32 @@ class D2UiCustomizer {
       // 非表示されているものを戻す
       container.appendChild(label);
       const details = container.querySelector("details");
+      container.removeChild(details);
+    }
+  }
+
+  /**
+   * inpaint設定を非表示
+   */
+  static moveInpaintSettings() {
+    const enable = opts.d2_uic_enable_invisible_inpaint_settings;
+    const container = gradioApp().querySelector("#inpaint_controls");
+
+    if (enable && !container.querySelector("details")) {
+      const summary = document.createElement("summary");
+      summary.textContent = "Inpaint settings";
+
+      const details = document.createElement("details");
+      const inpaintControls = container.children[0];
+      details.appendChild(summary);
+      details.appendChild(inpaintControls);
+      container.appendChild(details);
+      //
+    } else if (!enable && container.querySelector("details")) {
+      // 戻す
+      const details = container.querySelector("details");
+      const inpaintControls = details.children[1];
+      container.appendChild(inpaintControls);
       container.removeChild(details);
     }
   }

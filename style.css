@@ -78,3 +78,11 @@
     );
   }
 }
+
+/* inpaint設定の枠 */
+#inpaint_controls > details {
+  padding: 1rem 0.5rem;
+  border: 1px solid var(--block-border-color);
+  border-radius: 8px;
+  margin-top: 3px;
+}

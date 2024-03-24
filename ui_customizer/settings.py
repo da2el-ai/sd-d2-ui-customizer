@@ -111,3 +111,12 @@ def on_ui_settings():
             section=section,
         ),
     )
+
+    shared.opts.add_option(
+        key="d2_uic_enable_invisible_inpaint_settings",
+        info=shared.OptionInfo(
+            True,
+            label="Inpaint設定の非表示を有効にする",
+            section=section,
+        ),
+    )
