@@ -11,6 +11,7 @@ Stable Diffusion webui AUTOMATIC1111版（以下 webui）のUIをカスタマイ
 - 生成画像の下のボタン（send to 系）のサイズを変更
 - プルダウンメニューのアクティブ色を変更
 - 機能拡張パネルの背景色を変更
+- Inpaint設定の非表示・表示切り替え（2024.3.24追加）
 
 ### English
 
@@ -63,6 +64,8 @@ This customizes the user interface (UI) of the Stable Diffusion webui AUTOMATIC1
 
 ## Update
 
+- 2024.03.24
+  - Inpaint設定を非表示にする設定を追加
 - 2023.12.26
   - feat: ネガティブプロンプトの非表示切替の設定を追加
   - feat: 機能拡張がアクティブ時の背景色設定を追加
