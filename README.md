@@ -64,6 +64,8 @@ This customizes the user interface (UI) of the Stable Diffusion webui AUTOMATIC1
 
 ## Update
 
+- 2024.07.11
+  - Tiled Diffusion のチェックボックスに対応
 - 2024.03.24
   - Inpaint設定を非表示にする設定を追加
 - 2023.12.26
